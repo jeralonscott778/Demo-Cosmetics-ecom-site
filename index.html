@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plainly. — Clinical skincare, honestly labelled</title>
+<meta name="description" content="Plainly. makes clinical skincare with clear labels and fair prices. Single-active serums, cleansers and moisturisers.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111'/%3E%3Ctext x='6' y='23' font-family='Arial' font-weight='800' font-size='18' fill='%23fff'%3EP.%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--muted:#6e6e6a;--line:#e8e8e5;--panel:#f3f3f1;--cream:#faf5ef;--blush:#efcdc2;--wrap:1240px;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
+svg{display:block}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+ul{list-style:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.h2{font-family:"Inter Tight",Inter,sans-serif;font-weight:700;font-size:clamp(30px,3.4vw,46px);letter-spacing:-.035em;line-height:1.02}
+.eyebrow{font-size:13px;color:#3b3b39;line-height:1.4}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:14px;display:block}
+
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 26px;border-radius:999px;background:var(--ink);color:#fff;font-size:13px;font-weight:500;transition:background .25s,color .25s,box-shadow .25s,transform .25s;white-space:nowrap}
+.pill:hover{background:#333}
+.pill:active{transform:scale(.97)}
+.pill.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.pill.ghost:hover{background:var(--ink);color:#fff}
+.pill.blush{background:var(--blush);color:var(--ink)}
+.pill.blush:hover{background:#e6b9ab}
+.pill.full{width:100%}
+.pill svg{width:16px;height:16px}
+
+.ib{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;position:relative;transition:background .2s}
+.ib:hover{background:var(--panel)}
+.ib svg{width:20px;height:20px}
+.ct{position:absolute;top:2px;right:0;min-width:16px;height:16px;padding:0 4px;border-radius:9px;background:var(--ink);color:#fff;font-size:10px;font-weight:600;display:grid;place-items:center;transform:scale(0);transition:transform .3s var(--ease)}
+.ct.show{transform:scale(1)}
+.ct.bump{animation:bump .45s var(--ease)}
+@keyframes bump{40%{transform:scale(1.45)}}
+
+/* announcement */
+.ann{background:var(--ink);color:#fff;font-size:12px;text-align:center;padding:9px 16px;letter-spacing:.01em}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+.hdr.scrolled{border-color:var(--line)}
+.hdr-in{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:23px;letter-spacing:-.055em;line-height:1}
+.logo small{display:block;font-family:Inter,sans-serif;font-size:9px;font-weight:500;letter-spacing:.01em;margin-bottom:1px}
+.nav{display:flex;gap:34px;align-items:center}
+.nav-a{font-size:13px;display:inline-flex;align-items:center;gap:4px;padding:8px 0;position:relative}
+.nav-a::after{content:"";position:absolute;left:0;right:0;bottom:3px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav-a:hover::after{transform:scaleX(1)}
+.nav-a svg{width:14px;height:14px}
+.dd{position:relative}
+.dd-menu{position:absolute;top:100%;left:-28px;width:640px;background:#fff;border:1px solid var(--line);padding:28px;display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:28px;opacity:0;visibility:hidden;transform:translateY(8px);transition:.3s var(--ease)}
+.dd:hover .dd-menu,.dd:focus-within .dd-menu{opacity:1;visibility:visible;transform:none}
+.dd-menu h4{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500;margin-bottom:12px}
+.dd-menu a{display:block;font-size:14px;padding:5px 0;transition:color .2s}
+.dd-menu a:hover{color:var(--muted)}
+.dd-feat{background:var(--panel);padding:18px;display:flex;flex-direction:column;gap:12px}
+.dd-feat .mini{height:130px;display:flex;justify-content:center;gap:4px;align-items:flex-end}
+.dd-feat .mini svg{height:100%;width:auto}
+.dd-feat b{font-size:13px}
+.dd-feat span{font-size:12px;color:var(--muted)}
+.icons{display:flex;gap:2px;align-items:center}
+.burger{display:none!important}
+
+/* hero */
+.hero{padding-top:20px}
+.hero-card{background:var(--panel);display:grid;grid-template-columns:1fr 1.15fr;min-height:590px;position:relative;overflow:hidden}
+.hero-copy{padding:64px 0 64px 56px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.hero-h{font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:clamp(46px,6.3vw,90px);letter-spacing:-.055em;line-height:.9;margin:22px 0}
+.hero-sub{max-width:370px;color:#3f3f3c;font-size:15px}
+.hero-cta{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:34px;margin-top:48px}
+.hero-meta div{font-size:12px;color:var(--muted)}
+.hero-meta b{display:block;font-family:"Inter Tight",Inter,sans-serif;font-size:23px;color:var(--ink);letter-spacing:-.03em;font-weight:700}
+.hero-art{position:relative;min-height:470px}
+.hero-art svg{width:100%;height:auto}
+.dish{position:absolute}
+.d1{width:42%;left:4%;top:5%}
+.d2{width:48%;right:-4%;top:40%}
+.hb{position:absolute;filter:drop-shadow(26px 30px 22px rgba(0,0,0,.22))}
+.hb1{width:29%;left:31%;top:14%}
+.hb2{width:20%;left:62%;top:3%;filter:drop-shadow(18px 24px 18px rgba(0,0,0,.16))}
+.float{animation:float 6s ease-in-out infinite alternate;transform:rotate(var(--r,0deg))}
+@keyframes float{from{transform:rotate(var(--r,0deg)) translateY(0)}to{transform:rotate(var(--r,0deg)) translateY(-12px)}}
+
+/* sections */
+.sec{padding-top:110px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:34px;flex-wrap:wrap}
+.sec-tools{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{height:34px;padding:0 16px;border-radius:999px;font-size:13px;box-shadow:inset 0 0 0 1px var(--line);transition:.2s;display:inline-flex;align-items:center;gap:6px;background:#fff}
+.tab:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+.tab.on{background:var(--ink);color:#fff;box-shadow:none}
+.tab svg{width:13px;height:13px}
+.arrows{display:flex;gap:8px}
+.arr{width:40px;height:40px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line);display:grid;place-items:center;transition:.2s}
+.arr:hover{background:var(--ink);color:#fff;box-shadow:none}
+.arr svg{width:16px;height:16px}
+.see{font-size:12px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:2px}
+
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/4);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.rail::-webkit-scrollbar{display:none}
+.rail .empty-rail{grid-column:1/-1;width:100%;background:var(--panel);padding:70px 20px;text-align:center;color:var(--muted)}
+.card{scroll-snap-align:start;min-width:0;animation:cardIn .6s var(--ease) both}
+@keyframes cardIn{from{opacity:0;transform:translateY(14px)}}
+.card-img{position:relative;background:var(--panel);aspect-ratio:4/5;display:flex;align-items:flex-end;justify-content:center;padding:13% 0 9%;cursor:pointer;overflow:hidden}
+.card-img .bt{height:100%;transition:transform .6s var(--ease)}
+.card-img .bt svg{height:100%;width:auto;filter:drop-shadow(8px 12px 10px rgba(0,0,0,.13))}
+.card:hover .bt{transform:translateY(-6px) scale(1.035)}
+.badge{position:absolute;top:0;right:0;background:var(--ink);color:#fff;font-size:11px;padding:5px 9px;font-weight:500;z-index:2}
+.heart{position:absolute;top:10px;left:10px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;z-index:2;transition:background .2s,transform .2s}
+.heart svg{width:18px;height:18px;transition:fill .2s}
+.heart:hover{background:#fff}
+.heart.on svg{fill:var(--ink)}
+.heart:active{transform:scale(.85)}
+.quick{position:absolute;left:12px;right:12px;bottom:12px;height:40px;border-radius:999px;background:var(--ink);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px;transform:translateY(64px);opacity:0;transition:.4s var(--ease);z-index:2}
+.quick svg{width:15px;height:15px}
+.card:hover .quick{transform:none;opacity:1}
+.card-body{padding:14px 2px 0}
+.card-body h3{font-size:13.5px;font-weight:600;line-height:1.35;cursor:pointer}
+.card-body p{font-size:12px;color:var(--muted);margin:5px 0 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.price{font-size:13px;font-weight:600}
+.price s{color:#9a9a96;font-weight:400;margin-left:6px}
+@media (hover:none){
+  .quick{transform:none;opacity:1;left:auto;right:10px;bottom:10px;width:36px;height:36px;padding:0}
+  .quick span{display:none}
+}
+
+/* cream / regimen */
+.cream{background:var(--cream);margin-top:120px;overflow:hidden}
+.cream-in{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding-top:96px;padding-bottom:96px;align-items:center}
+.lead{color:#4a4a47;max-width:420px;margin:18px 0 26px;font-size:14.5px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{height:34px;padding:0 16px;border-radius:999px;font-size:13px;background:#fff;transition:.2s}
+.chip:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+.chip.on{background:var(--ink);color:#fff}
+.routine{display:grid;gap:8px;max-width:500px}
+.step{display:grid;grid-template-columns:22px 60px 1fr auto;align-items:center;gap:14px;background:#fff;padding:10px 18px 10px 14px;cursor:pointer;transition:transform .3s var(--ease);animation:cardIn .5s var(--ease) both}
+.step:hover{transform:translateX(4px)}
+.step .n{font-size:11px;color:var(--muted)}
+.step .th{height:62px;background:var(--panel);display:flex;justify-content:center;align-items:flex-end;padding:6px 0 3px}
+.step .th svg{height:100%;width:auto}
+.step .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+.step .nm{font-size:13.5px;font-weight:600;line-height:1.3}
+.step .pr{font-weight:600;font-size:13px}
+.routine-foot{display:flex;align-items:center;gap:18px;margin-top:22px;max-width:500px;justify-content:space-between;flex-wrap:wrap}
+.routine-foot .tot{font-size:13px;color:var(--muted)}
+.routine-foot .tot b{color:var(--ink);font-size:16px;margin-left:4px}
+.cream-art{position:relative;height:580px}
+.cream-art svg{width:100%;height:auto}
+.cb{position:absolute;filter:drop-shadow(20px 26px 20px rgba(0,0,0,.18))}
+.cb1{width:24%;left:20%;top:16%}
+.cb2{width:27%;left:52%;top:38%}
+.drip{position:absolute;left:29.5%;top:0;width:5%;height:24%}
+.drip svg{height:100%;width:100%}
+
+/* essentials */
+.ess{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;align-items:center}
+.tile{position:relative;aspect-ratio:4/5;overflow:hidden;cursor:pointer}
+.tile .b{position:absolute;filter:drop-shadow(14px 18px 14px rgba(0,0,0,.18));transition:transform .8s var(--ease)}
+.tile .b svg,.tile .dish svg{width:100%;height:auto}
+.tile:hover .b{transform:translateY(-8px) rotate(var(--r,0deg))}
+.tile.t1{background:linear-gradient(160deg,#eeedf3,#dddce5)}
+.tile.t2{background:linear-gradient(160deg,#f4ede5,#e5dace)}
+.tile .lbl{position:absolute;left:16px;bottom:14px;font-size:12px;background:#fff;padding:6px 12px;border-radius:999px}
+.ess-copy{text-align:right;padding-left:24px;display:flex;flex-direction:column;align-items:flex-end}
+.ess-copy p{color:#4a4a47;max-width:320px;margin:18px 0 28px}
+
+/* actives */
+.actives{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.act{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 30px 28px;cursor:pointer;transition:background .3s;display:flex;flex-direction:column;gap:10px;min-height:250px}
+.act:hover{background:var(--panel)}
+.act .pc{font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:64px;letter-spacing:-.055em;line-height:1}
+.act h3{font-size:16px;font-weight:600}
+.act p{color:var(--muted);font-size:13px;max-width:300px}
+.act .go{margin-top:auto;font-size:12.5px;display:flex;align-items:center;gap:6px;transition:gap .3s}
+.act:hover .go{gap:12px}
+.act .go svg{width:15px;height:15px}
+
+/* values */
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:40px 0;border-bottom:1px solid var(--line);margin-top:110px;border-top:1px solid var(--line)}
+.val{display:flex;gap:14px;align-items:center}
+.val .ic{width:46px;height:46px;flex:none;border-radius:50%;background:var(--panel);display:grid;place-items:center}
+.val .ic svg{width:20px;height:20px}
+.val b{display:block;font-size:13.5px;font-weight:600}
+.val span{font-size:12px;color:var(--muted)}
+
+/* about */
+.about{padding-top:110px;display:grid;grid-template-columns:.8fr 2fr;gap:40px}
+.about .big{font-family:"Inter Tight",Inter,sans-serif;font-weight:600;font-size:clamp(26px,3.2vw,42px);letter-spacing:-.035em;line-height:1.12}
+.about .big em{font-style:normal;color:#a6a6a1}
+.about-stats{display:flex;gap:48px;margin-top:40px;flex-wrap:wrap}
+.about-stats b{display:block;font-family:"Inter Tight",Inter,sans-serif;font-size:34px;letter-spacing:-.04em;font-weight:700}
+.about-stats span{font-size:12px;color:var(--muted)}
+
+/* newsletter */
+.news{margin-top:120px;background:var(--panel);display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding:56px}
+.news p{color:#4a4a47;margin-top:12px;max-width:420px}
+.news form{display:flex;background:#fff;border-radius:999px;padding:5px;gap:6px}
+.news input{flex:1;border:0;outline:0;padding:0 18px;background:transparent;font-size:14px;min-width:0}
+.news small{display:block;margin-top:10px;font-size:11.5px;color:var(--muted)}
+
+/* footer */
+footer{margin-top:120px;border-top:1px solid var(--line);padding:64px 0 28px;overflow:hidden}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+.f-grid h4{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500;margin-bottom:14px}
+.f-grid a{display:block;font-size:13.5px;padding:4px 0;transition:color .2s}
+.f-grid a:hover{color:var(--muted)}
+.f-about p{color:var(--muted);max-width:300px;margin-top:14px;font-size:13px}
+.social{display:flex;gap:8px;margin-top:20px}
+.social a{width:36px;height:36px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line);display:grid;place-items:center;padding:0;transition:.2s}
+.social a:hover{background:var(--ink);color:#fff}
+.social svg{width:16px;height:16px}
+.f-big{font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:clamp(80px,19vw,250px);letter-spacing:-.065em;line-height:.8;margin-top:72px;padding-bottom:.2em;white-space:nowrap}
+.f-grid a.logo{font-size:23px;padding:0}
+.f-bot{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:30px;flex-wrap:wrap;gap:12px}
+
+/* overlays */
+.scrim{position:fixed;inset:0;background:rgba(17,17,17,.35);opacity:0;visibility:hidden;transition:.35s;z-index:60}
+.scrim.open{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:#fff;z-index:70;transform:translateX(100%);transition:transform .5s var(--ease);display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.dr-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px 16px 24px;border-bottom:1px solid var(--line)}
+.dr-head h3{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.ship{padding:16px 24px;border-bottom:1px solid var(--line);font-size:12.5px}
+.ship .bar{height:3px;background:var(--line);margin-top:10px;overflow:hidden}
+.ship .bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .6s var(--ease)}
+.dr-list{flex:1;overflow-y:auto;padding:0 24px}
+.ci{display:grid;grid-template-columns:80px 1fr auto;gap:14px;padding:18px 0;border-bottom:1px solid var(--line);animation:cardIn .4s var(--ease) both}
+.ci .th{background:var(--panel);height:98px;display:flex;justify-content:center;align-items:flex-end;padding:10px 0 5px;cursor:pointer}
+.ci .th svg{height:100%;width:auto}
+.ci h4{font-size:13px;font-weight:600;line-height:1.35}
+.ci .meta{font-size:12px;color:var(--muted);margin:3px 0}
+.ci .p{font-size:13px;font-weight:600}
+.qty{display:inline-flex;align-items:center;box-shadow:inset 0 0 0 1px var(--line);margin-top:10px;border-radius:999px}
+.qty button{width:32px;height:32px;display:grid;place-items:center;border-radius:50%}
+.qty button:hover{background:var(--panel)}
+.qty button svg{width:13px;height:13px}
+.qty span{min-width:22px;text-align:center;font-size:13px}
+.rm{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;color:var(--muted)}
+.rm:hover{background:var(--panel);color:var(--ink)}
+.rm svg{width:15px;height:15px}
+.dr-foot{padding:20px 24px 24px;border-top:1px solid var(--line)}
+.row{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px}
+.row.t{font-weight:700;font-size:15px;margin:10px 0 16px}
+.dr-foot small{display:block;text-align:center;color:var(--muted);font-size:11.5px;margin-top:10px}
+.empty{text-align:center;padding:80px 10px;color:var(--muted)}
+.empty svg{width:40px;height:40px;margin:0 auto 14px;opacity:.5}
+.empty .pill{margin-top:20px}
+
+.modal{position:fixed;left:50%;top:50%;width:min(960px,calc(100% - 32px));max-height:calc(100vh - 40px);overflow:auto;background:#fff;z-index:70;transform:translate(-50%,-46%);opacity:0;visibility:hidden;transition:.4s var(--ease)}
+.modal.open{transform:translate(-50%,-50%);opacity:1;visibility:visible}
+.modal .x{position:absolute;top:12px;right:12px;z-index:3;background:#fff}
+.qv{display:grid;grid-template-columns:1fr 1fr}
+.qv-img{background:var(--panel);min-height:560px;display:flex;justify-content:center;align-items:flex-end;padding:70px 0 56px;position:relative}
+.qv-img svg{height:400px;width:auto;filter:drop-shadow(18px 24px 18px rgba(0,0,0,.16))}
+.qv-info{padding:48px 44px 40px}
+.qv-cat{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.qv-name{font-family:"Inter Tight",Inter,sans-serif;font-size:30px;font-weight:700;letter-spacing:-.035em;line-height:1.08;margin:10px 0 12px}
+.qv-price{font-size:17px;font-weight:600}
+.qv-price s{font-weight:400;color:#9a9a96;margin-left:8px;font-size:14px}
+.qv-desc{color:#4a4a47;margin:16px 0}
+.qv-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.qv-tags li{font-size:11.5px;padding:5px 11px;border-radius:999px;background:var(--panel)}
+.qv-buy{display:flex;gap:10px;align-items:center;margin-bottom:26px}
+.qv-buy .qty{margin:0;height:42px}
+.qv-buy .pill{flex:1}
+.qv-buy .ib{box-shadow:inset 0 0 0 1px var(--line);width:42px;height:42px;flex:none}
+.qv-buy .ib.on svg{fill:var(--ink)}
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{font-size:13px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:400;font-size:16px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{font-size:13px;color:var(--muted);margin-top:8px}
+
+.search{position:fixed;left:0;right:0;top:0;background:#fff;z-index:70;transform:translateY(-105%);transition:.45s var(--ease);padding:26px 0 34px}
+.search.open{transform:none}
+.s-row{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--ink);padding-bottom:12px}
+.s-row>svg{width:24px;height:24px}
+.s-row input{flex:1;border:0;outline:0;font-size:clamp(22px,3vw,34px);font-family:"Inter Tight",Inter,sans-serif;letter-spacing:-.03em;min-width:0}
+.s-hint{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.s-res{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin-top:18px;max-height:52vh;overflow:auto}
+.sr{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;padding:8px;cursor:pointer;transition:background .2s}
+.sr:hover{background:var(--panel)}
+.sr .th{height:64px;background:var(--panel);display:flex;justify-content:center;align-items:flex-end;padding:6px 0 3px}
+.sr .th svg{height:100%;width:auto}
+.sr b{display:block;font-size:13px;font-weight:600;line-height:1.3}
+.sr span{font-size:12px;color:var(--muted)}
+.s-none{color:var(--muted);padding:20px 0}
+
+.mnav{position:fixed;top:0;left:0;bottom:0;width:min(360px,88%);background:#fff;z-index:70;transform:translateX(-100%);transition:.5s var(--ease);padding:16px 24px 28px;display:flex;flex-direction:column;overflow-y:auto}
+.mnav.open{transform:none}
+.mnav-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}
+.mnav a.big{font-family:"Inter Tight",Inter,sans-serif;font-size:28px;font-weight:700;letter-spacing:-.035em;padding:10px 0;border-bottom:1px solid var(--line)}
+.mnav .sub{display:flex;flex-wrap:wrap;gap:6px;margin:22px 0}
+.mnav .foot{margin-top:auto;font-size:12px;color:var(--muted)}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140px);opacity:0;visibility:hidden;background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-size:13px;z-index:90;transition:transform .45s var(--ease);display:flex;gap:10px;align-items:center;max-width:calc(100% - 32px);text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1;visibility:visible}
+.toast svg{width:16px;height:16px;flex:none}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+@media (max-width:1020px){
+  .nav{display:none}.burger{display:grid!important}
+  .hero-card{grid-template-columns:1fr}
+  .hero-copy{padding:48px 32px 0}
+  .hero-art{min-height:440px}
+  .rail{grid-auto-columns:calc((100% - 32px)/3)}
+  .cream-in{grid-template-columns:1fr;padding-top:40px;padding-bottom:72px}
+  .cream-art{height:420px;order:-1}
+  .ess{grid-template-columns:1fr 1fr}
+  .ess-copy{grid-column:1/-1;text-align:left;align-items:flex-start;padding:20px 0 0}
+  .actives{grid-template-columns:1fr 1fr}
+  .vals{grid-template-columns:1fr 1fr;gap:24px}
+  .about{grid-template-columns:1fr;gap:10px}
+  .news{grid-template-columns:1fr;padding:40px 32px;gap:24px}
+  .f-grid{grid-template-columns:1fr 1fr 1fr}
+  .f-about{grid-column:1/-1}
+  .qv{grid-template-columns:1fr}
+  .qv-img{min-height:340px;padding:46px 0 34px}
+  .qv-img svg{height:260px}
+  .qv-info{padding:30px 24px}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .ann{font-size:11px}
+  .ann-x{display:none}
+  .hdr-in{height:58px;gap:8px}
+  .ib{width:36px;height:36px}
+  .hero{padding-top:10px}
+  .hero-copy{padding:36px 22px 0}
+  .hero-h{margin:16px 0}
+  .hero-meta{gap:22px;margin-top:30px}
+  .hero-meta b{font-size:19px}
+  .hero-art{min-height:350px}
+  .sec{padding-top:84px}
+  .sec-head{margin-bottom:24px}
+  .sec-tools{width:100%;justify-content:space-between}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px;width:calc(100% + 32px)}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:none}
+  .arrows{display:none}
+  .rail{grid-auto-columns:calc((100% - 12px)/2);gap:12px}
+  .cream{margin-top:90px}
+  .cream-art{height:340px}
+  .step{grid-template-columns:54px 1fr auto;padding:8px 14px 8px 8px;gap:12px}
+  .step .n{display:none}
+  .step .th{height:58px}
+  .routine-foot .pill{width:100%}
+  .ess{gap:10px}
+  .actives{grid-template-columns:1fr}
+  .act{min-height:0;padding:26px 22px}
+  .act .pc{font-size:52px}
+  .vals{grid-template-columns:1fr;margin-top:84px}
+  .about{padding-top:84px}
+  .about-stats{gap:28px}
+  .news{margin-top:84px;padding:32px 22px}
+  .news form{flex-direction:column;border-radius:22px;padding:6px}
+  .news input{height:44px}
+  .f-grid{grid-template-columns:1fr 1fr;gap:28px}
+  footer{margin-top:84px;padding-top:48px}
+  .qv-buy{flex-wrap:wrap}
+  .qv-name{font-size:25px}
+}
+</style>
+</head>
+<body id="top">
+
+<div class="ann">Free delivery on orders over <b>GH₵400</b><span class="ann-x"> · Consultations with our skin team are free</span></div>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <button class="ib burger" data-open-layer="mnav" aria-label="Menu" data-i="menu"></button>
+    <a class="logo" href="#top"><small>the skin edit</small>Plainly.</a>
+    <nav class="nav">
+      <div class="dd">
+        <button class="nav-a">Shop <span data-i="chev"></span></button>
+        <div class="dd-menu">
+          <div>
+            <h4>By category</h4>
+            <a href="#bestsellers" data-filter="Serums">Serums</a>
+            <a href="#bestsellers" data-filter="Moisturisers">Moisturisers</a>
+            <a href="#bestsellers" data-filter="Cleansers">Cleansers</a>
+            <a href="#bestsellers" data-filter="Exfoliants">Exfoliants</a>
+            <a href="#bestsellers" data-filter="All">Shop all</a>
+          </div>
+          <div>
+            <h4>By concern</h4>
+            <a href="#regimen" data-concern="acne">Acne &amp; blemishes</a>
+            <a href="#regimen" data-concern="dull">Dullness</a>
+            <a href="#regimen" data-concern="dry">Dryness</a>
+            <a href="#regimen" data-concern="age">Signs of ageing</a>
+            <a href="#regimen" data-concern="tone">Uneven tone</a>
+          </div>
+          <a class="dd-feat" href="#bestsellers" data-filter="Serums">
+            <div class="mini"><div data-bottle="hya"></div><div data-bottle="caf"></div></div>
+            <b>The Serum Edit</b>
+            <span>Our four most-loved actives, from GH₵135.</span>
+          </a>
+        </div>
+      </div>
+      <a class="nav-a" href="#bestsellers">Bestsellers</a>
+      <a class="nav-a" href="#regimen">Regimen builder</a>
+      <a class="nav-a" href="#actives">Ingredients</a>
+      <a class="nav-a" href="#about">About</a>
+    </nav>
+    <div class="icons">
+      <button class="ib" data-open-layer="search" aria-label="Search" data-i="search"></button>
+      <button class="ib" id="wishBtn" aria-label="Saved items"><span data-i="heart"></span><span class="ct" data-count="wish">0</span></button>
+      <button class="ib" data-open-layer="cart" aria-label="Bag"><span data-i="bag"></span><span class="ct" data-count="bag">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="hero-card">
+      <div class="hero-copy">
+        <p class="eyebrow">Clinical formulations<br>with integrity</p>
+        <h1 class="hero-h">THE NEW<br>STANDARD<br>OF SKIN.</h1>
+        <p class="hero-sub">Single-active serums and everyday essentials, labelled exactly as they are. No fillers, no fairy dust — just percentages that work.</p>
+        <div class="hero-cta">
+          <a class="pill" href="#bestsellers">shop now</a>
+          <a class="pill ghost" href="#regimen">build your regimen</a>
+        </div>
+        <div class="hero-meta">
+          <div><b>14</b>formulas</div>
+          <div><b>100%</b>vegan</div>
+          <div><b>GH₵99+</b>fair pricing</div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="dish d1" data-dish="gold"></div>
+        <div class="dish d2" data-dish="gold"></div>
+        <div class="hb hb2"><div class="float" style="--r:14deg;animation-delay:-2s" data-bottle="nia"></div></div>
+        <div class="hb hb1"><div class="float" style="--r:-7deg" data-bottle="caf"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BESTSELLERS -->
+  <section class="sec wrap" id="bestsellers">
+    <div class="sec-head">
+      <h2 class="h2">Bestsellers</h2>
+      <div class="sec-tools">
+        <div class="tabs" id="tabs"></div>
+        <div class="arrows">
+          <button class="arr" data-dir="-1" aria-label="Previous" data-i="left"></button>
+          <button class="arr" data-dir="1" aria-label="Next" data-i="right"></button>
+        </div>
+      </div>
+    </div>
+    <div class="rail" id="rail"></div>
+  </section>
+
+  <!-- REGIMEN -->
+  <section class="cream" id="regimen">
+    <div class="wrap cream-in">
+      <div class="reveal">
+        <span class="kicker">Regimen builder</span>
+        <h2 class="h2">Build your own<br>regimen</h2>
+        <p class="lead">Tell us what your skin is dealing with. We'll match you with a simple three-step routine — no guesswork, no twelve-step lists.</p>
+        <div class="chips" id="chips"></div>
+        <div class="routine" id="routine"></div>
+        <div class="routine-foot">
+          <div class="tot">Routine total <b id="routineTotal">—</b></div>
+          <button class="pill" id="addRoutine">add routine to bag</button>
+        </div>
+      </div>
+      <div class="cream-art">
+        <div class="drip"><svg viewBox="0 0 20 200" preserveAspectRatio="none"><defs><linearGradient id="dripg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".4" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#f3efe9"/></linearGradient></defs><path d="M8.5 0 H11.5 V170 Q16 182 10 196 Q4 182 8.5 170 Z" fill="url(#dripg)"/></svg></div>
+        <div class="cb cb1"><div class="float" style="--r:-24deg" data-bottle="pep"></div></div>
+        <div class="cb cb2"><div class="float" style="--r:16deg;animation-delay:-3s" data-bottle="ret"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESSENTIALS -->
+  <section class="sec wrap">
+    <div class="ess">
+      <div class="tile t1 reveal" data-filter-go="Serums">
+        <div class="dish" style="width:70%;right:-26%;top:-10%" data-dish="clear"></div>
+        <div class="b" style="width:34%;left:12%;bottom:6%;--r:-8deg;transform:rotate(-8deg)" data-bottle="hya"></div>
+        <div class="b" style="width:30%;left:50%;bottom:14%;--r:9deg;transform:rotate(9deg)" data-bottle="arb"></div>
+        <span class="lbl">Hydration serums</span>
+      </div>
+      <div class="tile t2 reveal" data-filter-go="Exfoliants">
+        <div class="b" style="width:36%;left:10%;bottom:7%" data-bottle="gly"></div>
+        <div class="b" style="width:27%;left:54%;bottom:18%;--r:-14deg;transform:rotate(-14deg)" data-bottle="sal"></div>
+        <span class="lbl">Gentle exfoliation</span>
+      </div>
+      <div class="ess-copy reveal">
+        <span class="kicker">Start here</span>
+        <h2 class="h2">Everyday<br>essentials</h2>
+        <p>Our beginner-friendly duo: Hyaluronic Acid 2% + B5 for deep hydration, and Niacinamide 10% + Zinc 1% to refine pores and even out the look of skin.</p>
+        <button class="pill blush" data-filter-go="Serums">shop now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVES -->
+  <section class="sec wrap" id="actives">
+    <div class="sec-head">
+      <div><span class="kicker">Ingredient glossary</span><h2 class="h2">Know your actives</h2></div>
+      <a class="see" href="#bestsellers" data-filter="All">See all products</a>
+    </div>
+    <div class="actives reveal" id="actGrid"></div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="wrap">
+    <div class="vals reveal">
+      <div class="val"><div class="ic" data-i="leaf"></div><div><b>100% vegan</b><span>No animal-derived ingredients</span></div></div>
+      <div class="val"><div class="ic" data-i="shield"></div><div><b>Cruelty-free</b><span>Never tested on animals</span></div></div>
+      <div class="val"><div class="ic" data-i="drop"></div><div><b>Fragrance-free</b><span>Kind to sensitive skin</span></div></div>
+      <div class="val"><div class="ic" data-i="flask"></div><div><b>Clinically tested</b><span>Every formula, every batch</span></div></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="wrap about" id="about">
+    <span class="kicker">Our philosophy</span>
+    <div class="reveal">
+      <p class="big">Skincare should be read, not decoded. <em>Every Plainly. formula names its key active and its exact percentage — so you know what you're putting on your skin, and why it works.</em></p>
+      <div class="about-stats">
+        <div><b>1</b><span>key active per formula</span></div>
+        <div><b>0</b><span>added fragrance</span></div>
+        <div><b>30 days</b><span>no-fuss returns</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="wrap">
+    <div class="news reveal">
+      <div>
+        <h2 class="h2">10% off your first order</h2>
+        <p>Join the list for new formulas, routine guides and members-only offers. One email a week, nothing more.</p>
+      </div>
+      <div>
+        <form id="newsForm">
+          <input type="email" required placeholder="Your email address" aria-label="Email address">
+          <button class="pill" type="submit">subscribe</button>
+        </form>
+        <small>By subscribing you agree to receive marketing emails. Unsubscribe anytime.</small>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-about">
+        <a class="logo" href="#top"><small>the skin edit</small>Plainly.</a>
+        <p>Clinical skincare with clear labels and fair prices. Formulated for every skin tone, made to be understood.</p>
+        <div class="social">
+          <a href="#" data-soon aria-label="Instagram" data-i="ig"></a>
+          <a href="#" data-soon aria-label="TikTok" data-i="tt"></a>
+          <a href="#" data-soon aria-label="X" data-i="x"></a>
+        </div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#bestsellers" data-filter="Serums">Serums</a>
+        <a href="#bestsellers" data-filter="Moisturisers">Moisturisers</a>
+        <a href="#bestsellers" data-filter="Cleansers">Cleansers</a>
+        <a href="#bestsellers" data-filter="Exfoliants">Exfoliants</a>
+        <a href="#regimen">Regimen builder</a>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <a href="#" data-soon>Delivery</a>
+        <a href="#" data-soon>Returns</a>
+        <a href="#" data-soon>Track my order</a>
+        <a href="#" data-soon>FAQs</a>
+        <a href="#" data-soon>Contact us</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#about">Our story</a>
+        <a href="#actives">Ingredient glossary</a>
+        <a href="#" data-soon>Stockists</a>
+        <a href="#" data-soon>Sustainability</a>
+        <a href="#" data-soon>Careers</a>
+      </div>
+    </div>
+    <div class="f-big">Plainly.</div>
+    <div class="f-bot">
+      <span>© 2026 Plainly. Skincare. All rights reserved.</span>
+      <span>Privacy · Terms · Cookies</span>
+    </div>
+  </div>
+</footer>
+
+<!-- overlays -->
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer" id="cart" aria-label="Shopping bag">
+  <div class="dr-head"><h3>Shopping bag <span id="drCount"></span></h3><button class="ib" data-close aria-label="Close" data-i="close"></button></div>
+  <div class="ship"><span id="shipTxt"></span><div class="bar"><i id="shipBar"></i></div></div>
+  <div class="dr-list" id="drList"></div>
+  <div class="dr-foot" id="drFoot">
+    <div class="row"><span>Subtotal</span><span id="sub">GH₵0</span></div>
+    <div class="row"><span>Delivery</span><span id="del">—</span></div>
+    <div class="row t"><span>Total</span><span id="tot">GH₵0</span></div>
+    <button class="pill full" id="checkout">checkout</button>
+    <small>Secure payment · Mobile Money &amp; cards accepted</small>
+  </div>
+</aside>
+
+<div class="modal" id="qv" role="dialog" aria-label="Product details">
+  <button class="ib x" data-close aria-label="Close" data-i="close"></button>
+  <div id="qvBody"></div>
+</div>
+
+<div class="search" id="search">
+  <div class="wrap">
+    <div class="s-row"><span data-i="search"></span><input id="sInput" placeholder="Search products, actives, concerns…" autocomplete="off"><button class="ib" data-close aria-label="Close" data-i="close"></button></div>
+    <div class="s-hint" id="sHint"></div>
+    <div class="s-res" id="sRes"></div>
+  </div>
+</div>
+
+<nav class="mnav" id="mnav">
+  <div class="mnav-top"><a class="logo" href="#top" data-close><small>the skin edit</small>Plainly.</a><button class="ib" data-close aria-label="Close" data-i="close"></button></div>
+  <a class="big" href="#bestsellers" data-filter="All" data-close>Shop all</a>
+  <a class="big" href="#bestsellers" data-close>Bestsellers</a>
+  <a class="big" href="#regimen" data-close>Regimen builder</a>
+  <a class="big" href="#actives" data-close>Ingredients</a>
+  <a class="big" href="#about" data-close>About</a>
+  <div class="sub">
+    <button class="tab" data-filter="Serums" data-close>Serums</button>
+    <button class="tab" data-filter="Moisturisers" data-close>Moisturisers</button>
+    <button class="tab" data-filter="Cleansers" data-close>Cleansers</button>
+    <button class="tab" data-filter="Exfoliants" data-close>Exfoliants</button>
+  </div>
+  <div class="foot">Free delivery over GH₵400 · 30-day returns</div>
+</nav>
+
+<div class="toast" id="toast"><span data-i="check"></span><span id="toastTxt"></span></div>
+
+<script>
+/* ---------- icons ---------- */
+const S='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">';
+const I={
+  search:S+'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
+  heart:S+'<path d="M12 20s-7.5-4.6-7.5-10.2A4.2 4.2 0 0 1 12 7.3a4.2 4.2 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20Z"/></svg>',
+  bag:S+'<path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>',
+  menu:S+'<path d="M4 9h16M4 15h16"/></svg>',
+  close:S+'<path d="M6 6l12 12M18 6 6 18"/></svg>',
+  left:S+'<path d="M19 12H5m6-6-6 6 6 6"/></svg>',
+  right:S+'<path d="M5 12h14m-6-6 6 6-6 6"/></svg>',
+  plus:S+'<path d="M12 5v14M5 12h14"/></svg>',
+  minus:S+'<path d="M5 12h14"/></svg>',
+  chev:S+'<path d="m6 9 6 6 6-6"/></svg>',
+  check:S+'<path d="m5 12 4.5 4.5L19 7"/></svg>',
+  trash:S+'<path d="M5 7h14M10 7V5h4v2m-7 0 1 12h8l1-12"/></svg>',
+  leaf:S+'<path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14"/><path d="M5 19 13 11"/></svg>',
+  shield:S+'<path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>',
+  drop:S+'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/><path d="M4 4l16 16"/></svg>',
+  flask:S+'<path d="M9 3h6M10 3v6L5 19a1.5 1.5 0 0 0 1.3 2h11.4A1.5 1.5 0 0 0 19 19l-5-10V3"/><path d="M7.5 15h9"/></svg>',
+  ig:S+'<rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg>',
+  tt:S+'<path d="M14 4v10.5a3.5 3.5 0 1 1-3-3.46"/><path d="M14 4c.5 2.5 2.2 4 5 4.2"/></svg>',
+  x:S+'<path d="M5 5l14 14M19 5 5 19"/></svg>'
+};
+function paintIcons(root=document){root.querySelectorAll('[data-i]').forEach(e=>{if(!e.dataset.done){e.insertAdjacentHTML('afterbegin',I[e.dataset.i]||'');e.dataset.done=1}})}
+
+/* ---------- product data ---------- */
+const P=[
+ {id:'nia',name:'Niacinamide 10% + Zinc 1%',lbl:['Niacinamide 10%','+ Zinc PCA 1%'],cat:'Serums',type:'dropper',glass:'frost',cap:'white',vol:'30ml',price:145,was:null,c:['acne','tone'],desc:'A high-strength vitamin and mineral serum that refines the look of pores and balances excess oil.'},
+ {id:'hya',name:'Hyaluronic Acid 2% + B5',lbl:['Hyaluronic Acid 2%','+ Vitamin B5'],cat:'Serums',type:'dropper',glass:'frost',cap:'white',vol:'30ml',price:144,was:160,c:['dry','age'],desc:'Multi-weight hyaluronic acid for deep, lasting hydration without any heaviness.'},
+ {id:'caf',name:'Caffeine 5% Eye Concentrate',lbl:['Caffeine Solution','5% + EGCG'],cat:'Serums',type:'dropper',glass:'amber',cap:'black',vol:'30ml',price:135,was:150,c:['dull','age'],desc:'A lightweight eye serum with caffeine and green tea to reduce the look of puffiness and dark circles.'},
+ {id:'gly',name:'Glycolic Acid 7% Toning Solution',lbl:['Glycolic Acid 7%','Toning Solution'],cat:'Exfoliants',type:'toner',liquid:'gold',vol:'240ml',price:195,was:null,c:['dull','tone'],desc:'A gentle daily exfoliating toner for visibly brighter skin and smoother texture.'},
+ {id:'nmf',name:'Barrier Cream: Amino Acids + HA',lbl:['Amino Acids','+ Hyaluronic Acid'],cat:'Moisturisers',type:'tube',tone:'taupe',vol:'100ml',price:99,was:110,c:['dry','acne','tone'],desc:'A non-greasy surface moisturiser that mimics the skin\u2019s own natural hydrating factors.'},
+ {id:'ret',name:'Retinol 0.5% in Squalane',lbl:['Retinol 0.5%','in Squalane'],cat:'Serums',type:'dropper',glass:'amber',cap:'black',vol:'30ml',price:175,was:null,c:['age'],desc:'A water-free retinol serum that smooths the look of fine lines and refines texture overnight.'},
+ {id:'aha',name:'AHA 30% + BHA 2% Peeling Solution',lbl:['AHA 30% + BHA 2%','Peeling Solution'],cat:'Exfoliants',type:'dropper',glass:'ruby',cap:'black',vol:'30ml',price:185,was:null,c:['acne','dull'],desc:'A ten-minute weekly peel for visibly clearer, brighter and more even-looking skin.'},
+ {id:'pep',name:'Multi-Peptide + Copper Peptides 1%',lbl:['Multi-Peptide +','Copper Peptides 1%'],cat:'Serums',type:'dropper',glass:'frost',cap:'white',vol:'30ml',price:290,was:null,c:['age'],desc:'Our most advanced peptide serum for visibly firmer, plumper and more resilient skin.'},
+ {id:'sqc',name:'Squalane Balm Cleanser',lbl:['Squalane','Cleanser'],cat:'Cleansers',type:'tube',tone:'white',vol:'150ml',price:135,was:null,c:['dry','age'],desc:'A balm-to-oil cleanser that lifts makeup and sunscreen without stripping the skin.'},
+ {id:'vtc',name:'Vitamin C Suspension 23%',lbl:['Vitamin C 23%','Suspension'],cat:'Serums',type:'jar',vol:'30ml',price:120,was:null,c:['tone','dull'],desc:'A potent, water-free vitamin C cream for visibly brighter and more even skin.'},
+ {id:'arb',name:'Alpha Arbutin 2% + HA',lbl:['Alpha Arbutin 2%','+ HA'],cat:'Serums',type:'dropper',glass:'frost',cap:'white',vol:'30ml',price:155,was:null,c:['tone'],desc:'Targets the look of dark spots and uneven tone for a more uniform complexion.'},
+ {id:'sal',name:'Salicylic Acid 2% Solution',lbl:['Salicylic Acid 2%','Solution'],cat:'Exfoliants',type:'dropper',glass:'amber',cap:'black',vol:'30ml',price:130,was:null,c:['acne'],desc:'An oil-soluble exfoliant that clears congested pores and helps prevent breakouts.'},
+ {id:'cer',name:'Ceramide Barrier Cream',lbl:['Ceramides 3%','Barrier Cream'],cat:'Moisturisers',type:'jar',lid:'white',vol:'50ml',price:165,was:null,c:['dry','age'],desc:'A rich, comforting cream with ceramides and fatty acids to restore a stressed skin barrier.'},
+ {id:'glc',name:'Gentle Gel Cleanser',lbl:['Glucoside','Gel Cleanser'],cat:'Cleansers',type:'toner',liquid:'clear',vol:'150ml',price:110,was:null,c:['acne','tone','dull'],desc:'A low-foam, pH-balanced gel cleanser that removes impurities while keeping skin comfortable.'}
+];
+const byId=Object.fromEntries(P.map(p=>[p.id,p]));
+const CON={acne:'Acne & blemishes',dull:'Dullness',dry:'Dryness',age:'Signs of ageing',tone:'Uneven tone'};
+const REG={acne:['glc','nia','nmf'],dull:['glc','gly','nmf'],dry:['sqc','hya','cer'],age:['sqc','ret','cer'],tone:['glc','arb','nmf']};
+const STEPS=['Cleanse','Treat','Moisturise'];
+const ACT=[
+ {pc:'10%',n:'Niacinamide',d:'Vitamin B3. Refines the look of pores, balances oil and evens out tone.',id:'nia'},
+ {pc:'2%',n:'Hyaluronic Acid',d:'Draws water into the skin for plump, lasting hydration — for every skin type.',id:'hya'},
+ {pc:'0.5%',n:'Retinol',d:'The gold standard for smoothing fine lines and refining texture over time.',id:'ret'},
+ {pc:'23%',n:'Vitamin C',d:'A powerful antioxidant that brightens and evens the look of skin tone.',id:'vtc'},
+ {pc:'7%',n:'Glycolic Acid',d:'An AHA that gently dissolves dull surface cells for a smoother finish.',id:'gly'},
+ {pc:'1%',n:'Copper Peptides',d:'Signal peptides that support the look of firmer, more resilient skin.',id:'pep'}
+];
+const FREE=400, DELIVERY=35;
+const money=n=>'GH\u20B5'+n.toLocaleString('en-US');
+
+/* ---------- product illustrations (pure SVG) ---------- */
+let gid=0;const FF='Inter,Helvetica,Arial,sans-serif';
+function lab(x,y,w,h,lines,vol){
+  const small=h<60, fs=small?3.6:4.4, bs=Math.min(small?8.2:10.5,(w-10)/4.5), by=y+(small?h*.66:h*.6);
+  let s=`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#fbfbf9"/>`;
+  lines.forEach((l,i)=>{s+=`<text x="${x+5}" y="${y+9+i*(fs+1.7)}" font-family="${FF}" font-size="${fs}" font-weight="500" fill="#2b2b2b">${l}</text>`});
+  s+=`<text x="${x+5}" y="${by}" font-family="${FF}" font-size="${bs}" font-weight="800" letter-spacing="-.45" fill="#111">Plainly.</text>`;
+  if(!small)s+=`<line x1="${x+5}" x2="${x+w-5}" y1="${by+5}" y2="${by+5}" stroke="#111" stroke-width=".35"/><text x="${x+5}" y="${by+11}" font-family="${FF}" font-size="3" fill="#666">clinical formulation</text>`;
+  s+=`<text x="${x+5}" y="${y+h-5}" font-family="${FF}" font-size="3.3" fill="#777">${vol}</text>`;
+  return s;
+}
+function grad(id,c){return `<linearGradient id="${id}" x1="0" x2="1"><stop offset="0" stop-color="${c[0]}"/><stop offset=".42" stop-color="${c[1]}"/><stop offset="1" stop-color="${c[2]}"/></linearGradient>`}
+function ribs(x0,x1,y,h,dark){let s='';for(let x=x0;x<=x1;x+=4.5)s+=`<rect x="${x}" y="${y}" width="1" height="${h}" fill="${dark?'#fff':'#000'}" opacity=".08"/>`;return s}
+const DARKCAP=['#050505','#3d3d3d','#0e0e0e'],WHITECAP=['#d0d0cd','#ffffff','#c8c8c5'];
+function bottle(p){
+  const id='b'+(gid++);
+  const open=`<svg viewBox="0 0 120 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">`;
+  if(p.type==='dropper'){
+    const G={amber:['#3f1b07','#a3581f','#4e230a'],frost:['#d4d8d5','#fbfbfa','#cdd1ce'],ruby:['#300808','#9a2c2c','#3f0d0d']}[p.glass];
+    const dark=p.cap!=='white',C=dark?DARKCAP:WHITECAP;
+    return open+`<defs>${grad(id+'b',G)}${grad(id+'c',C)}</defs>
+    <rect x="49" y="6" width="22" height="54" rx="11" fill="url(#${id}c)"/>
+    <rect x="42" y="56" width="36" height="40" rx="3" fill="url(#${id}c)"/>${ribs(46,74,59,34,dark)}
+    <rect x="50" y="95" width="20" height="10" fill="url(#${id}b)"/>
+    <path d="M32 104 Q22 104 22 118 V244 Q22 252 30 252 H90 Q98 252 98 244 V118 Q98 104 88 104 Z" fill="url(#${id}b)"/>
+    ${lab(29,134,62,104,p.lbl,p.vol)}
+    <rect x="24.6" y="114" width="2.6" height="128" rx="1.3" fill="#fff" opacity=".38"/>
+    <rect x="93" y="118" width="1.6" height="120" rx=".8" fill="#fff" opacity=".2"/></svg>`;
+  }
+  if(p.type==='tube'){
+    const T=p.tone==='white'?['#d8d8d5','#fbfbfa','#cfcfcc']:['#6c665f','#a8a29a','#746e67'];
+    const C=p.tone==='white'?['#8f8a84','#b9b4ad','#857f78']:WHITECAP;
+    let cr='';for(let x=22;x<=98;x+=3)cr+=`<rect x="${x}" y="10" width=".7" height="8" fill="#000" opacity=".12"/>`;
+    return open+`<defs>${grad(id+'b',T)}${grad(id+'c',C)}</defs>
+    <path d="M20 16 H100 L95 34 L86 198 H34 L25 34 Z" fill="url(#${id}b)"/>
+    <rect x="18" y="7" width="84" height="13" rx="1.5" fill="url(#${id}b)"/>${cr}
+    <rect x="32" y="196" width="56" height="56" rx="4" fill="url(#${id}c)"/>
+    <rect x="32" y="196" width="56" height="3" fill="#000" opacity=".1"/>
+    ${lab(37,62,46,110,p.lbl,p.vol)}
+    <path d="M30 38 L35.5 188" stroke="#fff" stroke-width="2.4" opacity=".3" stroke-linecap="round"/></svg>`;
+  }
+  if(p.type==='toner'){
+    const L=p.liquid==='clear'?['#cfd9da','#f4f8f8','#c5cfd0']:['#a9761f','#ebc76d','#a3711c'];
+    return open+`<defs>${grad(id+'b',L)}${grad(id+'c',WHITECAP)}</defs>
+    <rect x="43" y="10" width="34" height="46" rx="3" fill="url(#${id}c)"/>${ribs(47,73,13,40,false)}
+    <rect x="47" y="55" width="26" height="11" fill="url(#${id}b)" opacity=".95"/>
+    <path d="M38 64 Q24 66 24 86 V244 Q24 252 32 252 H88 Q96 252 96 244 V86 Q96 66 82 64 Z" fill="url(#${id}b)" opacity=".94"/>
+    <path d="M38 64 Q24 66 24 86 V244 Q24 252 32 252 H88 Q96 252 96 244 V86 Q96 66 82 64 Z" fill="none" stroke="#fff" stroke-opacity=".55"/>
+    ${lab(31,116,58,108,p.lbl,p.vol)}
+    <rect x="26.6" y="88" width="2.6" height="150" rx="1.3" fill="#fff" opacity=".45"/></svg>`;
+  }
+  // jar
+  const lidC=p.lid==='white'?WHITECAP:DARKCAP;
+  return open+`<defs>${grad(id+'b',['#dcdedb','#fbfbfa','#d2d4d1'])}${grad(id+'c',lidC)}</defs>
+    <rect x="17" y="182" width="86" height="70" rx="6" fill="url(#${id}b)"/>
+    <rect x="14" y="148" width="92" height="36" rx="4" fill="url(#${id}c)"/>${ribs(18,102,151,30,p.lid!=='white')}
+    ${lab(25,192,70,52,p.lbl,p.vol)}
+    <rect x="19.5" y="188" width="2.2" height="58" rx="1.1" fill="#fff" opacity=".5"/></svg>`;
+}
+function dish(type){
+  const id='d'+(gid++), g=type==='gold'?['#f6d98a','#d4a238']:['#ffffff','#e8e3dc'];
+  return `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+  <radialGradient id="${id}a" cx=".45" cy=".4" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".78" stop-color="#f1f1ef" stop-opacity=".7"/><stop offset="1" stop-color="#d9d9d6" stop-opacity=".95"/></radialGradient>
+  <radialGradient id="${id}g" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="${g[0]}"/><stop offset="1" stop-color="${g[1]}"/></radialGradient>
+  <filter id="${id}s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="6" dy="10" stdDeviation="8" flood-opacity=".14"/></filter></defs>
+  <g filter="url(#${id}s)"><circle cx="100" cy="100" r="95" fill="url(#${id}a)" stroke="#d3d3cf" stroke-width="1.4"/></g>
+  <circle cx="100" cy="100" r="87" fill="none" stroke="#fff" stroke-width="4" opacity=".95"/>
+  <circle cx="100" cy="100" r="83" fill="none" stroke="#e0e0dc" stroke-width="1"/>
+  <path d="M70 90 C66 70 90 60 104 69 C120 58 140 74 133 91 C146 103 134 126 116 120 C110 137 84 135 83 120 C62 122 56 99 70 90Z" fill="url(#${id}g)" opacity="${type==='gold'?.92:.85}"/>
+  <path d="M84 84 C86 76 98 74 104 78" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+  <circle cx="121" cy="97" r="3.2" fill="#fff" opacity=".85"/><circle cx="92" cy="110" r="2.2" fill="#fff" opacity=".7"/><circle cx="110" cy="112" r="1.5" fill="#fff" opacity=".7"/>
+  <path d="M38 64 A72 72 0 0 1 90 30" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".95"/></svg>`;
+}
+function paintArt(root=document){
+  root.querySelectorAll('[data-bottle]').forEach(e=>{if(!e.innerHTML.trim())e.innerHTML=bottle(byId[e.dataset.bottle])});
+  root.querySelectorAll('[data-dish]').forEach(e=>{if(!e.innerHTML.trim())e.innerHTML=dish(e.dataset.dish)});
+}
+
+/* ---------- state ---------- */
+function load(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v??d}catch(e){return d}}
+function save(){try{localStorage.setItem('plainly-cart',JSON.stringify(cart));localStorage.setItem('plainly-wish',JSON.stringify([...wish]))}catch(e){}}
+let cart=load('plainly-cart',[]).filter(c=>byId[c.id]);
+let wish=new Set(load('plainly-wish',[]).filter(id=>byId[id]));
+let filter='All', concern='acne', qvState=null;
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+/* ---------- bestsellers rail ---------- */
+const TABS=['All','Serums','Moisturisers','Cleansers','Exfoliants','Saved'];
+function renderTabs(){
+  $('#tabs').innerHTML=TABS.map(t=>`<button class="tab ${t===filter?'on':''}" data-filter="${t}">${t==='Saved'?I.heart:''}${t}${t==='Saved'&&wish.size?` (${wish.size})`:''}</button>`).join('');
+}
+function card(p,i){
+  const off=p.was?Math.round((1-p.price/p.was)*100):0;
+  return `<article class="card" style="animation-delay:${i*50}ms">
+    <div class="card-img" data-open="${p.id}">
+      ${off?`<span class="badge">-${off}%</span>`:''}
+      <button class="heart ${wish.has(p.id)?'on':''}" data-wish="${p.id}" aria-label="Save ${p.name}">${I.heart}</button>
+      <div class="bt">${bottle(p)}</div>
+      <button class="quick" data-add="${p.id}" aria-label="Add ${p.name} to bag">${I.plus}<span>Add to bag</span></button>
+    </div>
+    <div class="card-body">
+      <h3 data-open="${p.id}">${p.name}</h3>
+      <p>${p.desc}</p>
+      <div class="price">${money(p.price)}${p.was?`<s>${money(p.was)}</s>`:''}</div>
+    </div></article>`;
+}
+function renderRail(){
+  const list=filter==='All'?P:filter==='Saved'?P.filter(p=>wish.has(p.id)):P.filter(p=>p.cat===filter);
+  $('#rail').innerHTML=list.length?list.map(card).join(''):`<div class="empty-rail">Nothing saved yet — tap the ♡ on any product to keep it here.</div>`;
+  $('#rail').scrollLeft=0;
+  renderTabs();
+}
+function setFilter(f,scroll){filter=f;renderRail();if(scroll)document.getElementById('bestsellers').scrollIntoView({behavior:'smooth'})}
+
+/* ---------- regimen ---------- */
+function renderChips(){$('#chips').innerHTML=Object.entries(CON).map(([k,v])=>`<button class="chip ${k===concern?'on':''}" data-concern="${k}">${v}</button>`).join('')}
+function renderRoutine(){
+  const ids=REG[concern];
+  $('#routine').innerHTML=ids.map((id,i)=>{const p=byId[id];return `<div class="step" data-open="${id}" style="animation-delay:${i*80}ms">
+    <span class="n">0${i+1}</span><div class="th">${bottle(p)}</div>
+    <div><div class="k">${STEPS[i]}</div><div class="nm">${p.name}</div></div><div class="pr">${money(p.price)}</div></div>`}).join('');
+  $('#routineTotal').textContent=money(ids.reduce((a,id)=>a+byId[id].price,0));
+  renderChips();
+}
+
+/* ---------- actives ---------- */
+function renderActives(){
+  $('#actGrid').innerHTML=ACT.map(a=>`<div class="act" data-open="${a.id}"><div class="pc">${a.pc}</div><h3>${a.n}</h3><p>${a.d}</p><div class="go">Shop ${a.n} ${I.right}</div></div>`).join('');
+}
+
+/* ---------- cart ---------- */
+function bump(sel){const e=$(sel);e.classList.remove('bump');void e.offsetWidth;e.classList.add('bump')}
+function add(id,q=1,quiet){
+  const c=cart.find(x=>x.id===id);c?c.qty+=q:cart.push({id,qty:q});
+  save();renderCart();bump('[data-count="bag"]');
+  if(!quiet)toast(`${byId[id].name} added to your bag`);
+}
+function setQty(id,d){const c=cart.find(x=>x.id===id);if(!c)return;c.qty+=d;if(c.qty<1)cart=cart.filter(x=>x.id!==id);save();renderCart()}
+function renderCart(){
+  const n=cart.reduce((a,c)=>a+c.qty,0), sub=cart.reduce((a,c)=>a+byId[c.id].price*c.qty,0);
+  const bag=$('[data-count="bag"]');bag.textContent=n;bag.classList.toggle('show',n>0);
+  $('#drCount').textContent=n?`(${n})`:'';
+  $('#shipTxt').innerHTML=sub>=FREE?`You've unlocked <b>free delivery</b>.`:`You're <b>${money(FREE-sub)}</b> away from free delivery.`;
+  $('#shipBar').style.width=Math.min(100,sub/FREE*100)+'%';
+  $('#drList').innerHTML=cart.length?cart.map(c=>{const p=byId[c.id];return `<div class="ci">
+     <div class="th" data-open="${p.id}">${bottle(p)}</div>
+     <div><h4>${p.name}</h4><div class="meta">${p.vol} · ${p.cat}</div><div class="p">${money(p.price*c.qty)}</div>
+       <div class="qty"><button data-qty="${p.id}" data-d="-1" aria-label="Decrease">${I.minus}</button><span>${c.qty}</span><button data-qty="${p.id}" data-d="1" aria-label="Increase">${I.plus}</button></div></div>
+     <button class="rm" data-rm="${p.id}" aria-label="Remove">${I.close}</button></div>`}).join('')
+    :`<div class="empty">${I.bag}<div>Your bag is empty.</div><button class="pill" data-close data-filter="All">start shopping</button></div>`;
+  const del=sub>=FREE||!sub?0:DELIVERY;
+  $('#sub').textContent=money(sub);$('#del').textContent=sub?(del?money(del):'Free'):'—';$('#tot').textContent=money(sub+del);
+  $('#drFoot').style.display=cart.length?'':'none';
+}
+function renderWish(){
+  const w=$('[data-count="wish"]');w.textContent=wish.size;w.classList.toggle('show',wish.size>0);
+  $$('[data-wish]').forEach(b=>b.classList.toggle('on',wish.has(b.dataset.wish)));
+  renderTabs();
+}
+function toggleWish(id){
+  wish.has(id)?(wish.delete(id),toast('Removed from saved items')):(wish.add(id),toast(`${byId[id].name} saved`),setTimeout(()=>bump('[data-count="wish"]'),0));
+  save();renderWish();if(filter==='Saved')renderRail();
+}
+
+/* ---------- quick view ---------- */
+function howTo(p){
+  if(p.cat==='Cleansers')return 'Massage onto dry or damp skin for 30 seconds, then rinse with lukewarm water. Use morning and evening.';
+  if(p.type==='toner')return 'In the evening, sweep over cleansed skin with a cotton pad. Avoid the eye area. Use sunscreen during the day.';
+  if(p.cat==='Moisturisers')return 'Apply a small amount to face as the last step of your routine, morning and evening.';
+  if(p.id==='aha')return 'Use no more than twice a week. Apply evenly, leave on for no longer than 10 minutes, then rinse well.';
+  return 'Apply a few drops to the face in the morning and/or evening, before heavier creams. Patch test before first use.';
+}
+function openQV(id){
+  const p=byId[id];qvState={id,qty:1};
+  const off=p.was?Math.round((1-p.price/p.was)*100):0;
+  $('#qvBody').innerHTML=`<div class="qv"><div class="qv-img">${off?`<span class="badge" style="right:auto;left:0">-${off}%</span>`:''}${bottle(p)}</div>
+   <div class="qv-info">
+     <div class="qv-cat">${p.cat} · ${p.vol}</div>
+     <h2 class="qv-name">${p.name}</h2>
+     <div class="qv-price">${money(p.price)}${p.was?`<s>${money(p.was)}</s>`:''}</div>
+     <p class="qv-desc">${p.desc}</p>
+     <ul class="qv-tags">${p.c.map(k=>`<li>${CON[k]}</li>`).join('')}<li>Vegan</li><li>Fragrance-free</li></ul>
+     <div class="qv-buy">
+       <div class="qty"><button data-qvq="-1" aria-label="Decrease">${I.minus}</button><span id="qvn">1</span><button data-qvq="1" aria-label="Increase">${I.plus}</button></div>
+       <button class="pill" data-qvadd>add to bag · <span id="qvt">${money(p.price)}</span></button>
+       <button class="ib ${wish.has(p.id)?'on':''}" data-wish="${p.id}" aria-label="Save">${I.heart}</button>
+     </div>
+     <details open><summary>How to use</summary><p>${howTo(p)}</p></details>
+     <details><summary>Key ingredients</summary><p>${p.lbl.join(' ')} in a lightweight, fragrance-free and alcohol-free base. Suitable for all skin types and tones.</p></details>
+     <details><summary>Delivery &amp; returns</summary><p>Same-day dispatch on orders placed before 2pm. Free delivery over GH₵400. Unopened products can be returned within 30 days.</p></details>
+   </div></div>`;
+  openLayer('qv');
+}
+
+/* ---------- search ---------- */
+function renderSearch(q=''){
+  q=q.trim().toLowerCase();
+  const list=!q?P.slice(0,6):P.filter(p=>(p.name+' '+p.cat+' '+p.desc+' '+p.c.map(k=>CON[k]).join(' ')).toLowerCase().includes(q));
+  $('#sRes').innerHTML=list.length?list.map(p=>`<div class="sr" data-open="${p.id}"><div class="th">${bottle(p)}</div><div><b>${p.name}</b><span>${p.cat} · ${money(p.price)}</span></div></div>`).join(''):`<div class="s-none">No results for “${q.replace(/[<>&"]/g,'')}”. Try “hydration” or “acne”.</div>`;
+}
+$('#sHint').innerHTML=['Hydration','Acne','Retinol','Vitamin C','Cleanser'].map(t=>`<button class="tab" data-hint="${t}">${t}</button>`).join('');
+
+/* ---------- layers ---------- */
+let current=null;
+function openLayer(name){
+  closeLayer(true);current=document.getElementById(name);current.classList.add('open');
+  if(name!=='search')$('#scrim').classList.add('open');else $('#scrim').classList.add('open');
+  document.body.classList.add('lock');
+  if(name==='search'){renderSearch($('#sInput').value);setTimeout(()=>$('#sInput').focus(),250)}
+}
+function closeLayer(silent){
+  $$('.drawer.open,.modal.open,.search.open,.mnav.open').forEach(e=>e.classList.remove('open'));
+  $('#scrim').classList.remove('open');document.body.classList.remove('lock');current=null;
+}
+
+/* ---------- toast ---------- */
+let tt;function toast(msg){$('#toastTxt').textContent=msg;$('#toast').classList.add('show');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('show'),2400)}
+
+/* ---------- events ---------- */
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-add],[data-wish],[data-qty],[data-rm],[data-qvq],[data-qvadd],[data-open],[data-open-layer],[data-filter],[data-filter-go],[data-concern],[data-hint],[data-soon],[data-dir],[data-close],#wishBtn,#checkout,#addRoutine');
+  if(!t)return;
+  const d=t.dataset;
+  if(d.add!==undefined){e.stopPropagation();add(d.add);return}
+  if(d.wish!==undefined){toggleWish(d.wish);return}
+  if(d.qty!==undefined){setQty(d.qty,+d.d);return}
+  if(d.rm!==undefined){cart=cart.filter(x=>x.id!==d.rm);save();renderCart();return}
+  if(d.qvq!==undefined){qvState.qty=Math.max(1,qvState.qty+(+d.qvq));$('#qvn').textContent=qvState.qty;$('#qvt').textContent=money(byId[qvState.id].price*qvState.qty);return}
+  if(d.qvadd!==undefined){add(qvState.id,qvState.qty,true);closeLayer();setTimeout(()=>openLayer('cart'),350);return}
+  if(d.open!==undefined){openQV(d.open);return}
+  if(d.openLayer){openLayer(d.openLayer);return}
+  if(t.id==='wishBtn'){setFilter('Saved',true);return}
+  if(t.id==='checkout'){toast('Demo store — checkout will be connected in the full build');return}
+  if(t.id==='addRoutine'){REG[concern].forEach(id=>add(id,1,true));toast(`${CON[concern]} routine added to your bag`);setTimeout(()=>openLayer('cart'),500);return}
+  if(d.dir){const r=$('#rail');r.scrollBy({left:+d.dir*r.clientWidth*.75,behavior:'smooth'});return}
+  if(d.hint){$('#sInput').value=d.hint;renderSearch(d.hint);return}
+  if(d.soon!==undefined){e.preventDefault();toast('This page is coming in the full build');return}
+  if(d.concern){e.preventDefault();concern=d.concern;renderRoutine();if(t.closest('.dd-menu,.mnav')){closeLayer();document.getElementById('regimen').scrollIntoView({behavior:'smooth'})}return}
+  if(d.filter||d.filterGo){e.preventDefault();if(d.close!==undefined)closeLayer();setFilter(d.filter||d.filterGo,true);return}
+  if(d.close!==undefined){closeLayer();return}
+});
+$('#scrim').addEventListener('click',()=>closeLayer());
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLayer()});
+$('#sInput').addEventListener('input',e=>renderSearch(e.target.value));
+$('#newsForm').addEventListener('submit',e=>{e.preventDefault();e.target.reset();toast("You're on the list — check your inbox for 10% off")});
+addEventListener('scroll',()=>$('#hdr').classList.toggle('scrolled',scrollY>10),{passive:true});
+
+/* ---------- reveal ---------- */
+if('IntersectionObserver'in window){
+  const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+  $$('.reveal').forEach(el=>io.observe(el));
+}else $$('.reveal').forEach(el=>el.classList.add('in'));
+
+/* ---------- init ---------- */
+paintIcons();paintArt();renderRail();renderRoutine();renderActives();renderCart();renderWish();
+</script>
+</body>
+</html>
